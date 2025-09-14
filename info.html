@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Ministerio Publico</title>
+    <style>
+        /* Estilos Generales y Degradados */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f4f8, #c1d3e1);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #1a2a47;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .module {
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: #fafbfd;
+            border-radius: 10px;
+            border: 1px solid #e0e4e7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .module h2 {
+            color: #2b3a58;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #5a77a3;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos de Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #dcdfe3;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e9ecef;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f9fb;
+        }
+
+        tr:hover {
+            background-color: #e8f4fa;
+        }
+
+        .entity-header {
+            background-color: #3a5c88 !important;
+            color: white !important;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        
+        /* Estilos del Filtro de Búsqueda y Botones */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #eef3f7;
+            border-radius: 8px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        #searchInput {
+            width: 70%;
+            padding: 12px 18px;
+            border: 2px solid #a3b1c6;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #5a77a3;
+            box-shadow: 0 0 0 3px rgba(90, 119, 163, 0.2);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-search {
+            background-color: #4a6fa5;
+            color: white;
+        }
+
+        .btn-search:hover {
+            background-color: #3b5a80;
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* Estilos para ocultar filas */
+        .hidden-row {
+            display: none;
+        }
+
+        /* Ocultar el botón de impresión en la versión impresa */
+        @media print {
+            .search-container, .btn-print, .btn-search {
+                display: none !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Funciones del Ministerio Público, Defensa Pública y otros Órganos Judiciales en Misiones</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar texto en los documentos..." onkeydown="handleKeyPress(event)">
+            <div class="btn-group">
+                <button class="btn btn-search" onclick="filterContent()">Buscar</button>
+                <button class="btn btn-print" onclick="window.print()">Imprimir</button>
+            </div>
+        </div>
+
+        <div class="module" id="modulo1">
+            <h2></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="entity-header">Ministerio Público Fiscal</th>
+                    </tr>
+                    <tr>
+                        <th>Función Principal</th>
+                        <th>Ley</th>
+                        <th>Artículo(s) Principal(es)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ejercicio de la acción penal pública, inicio de oficio y dirección de la Policía Judicial.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 6, 59</td>
+                    </tr>
+                    <tr>
+                        <td>Determinación de criterios de oportunidad para suspender o limitar la persecución penal.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 60, 61, 62</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención obligatoria en actos de instrucción. Su no participación causa nulidad.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 173 inc. b), 206, 209</td>
+                    </tr>
+                    <tr>
+                        <td>Asistencia obligatoria y participación activa en el debate oral en juicios penales.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 379, 385, 393, 396</td>
+                    </tr>
+                    <tr>
+                        <td>No pueden ser recusados y deben excusarse por motivos legítimos.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 33</td>
+                    </tr>
+                    <tr>
+                        <td>Notificación personal del Procurador General y Fiscales de Cámara.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 136, último párrafo</td>
+                    </tr>
+                    <tr>
+                        <td>Pueden solicitar el apartamiento de un juez en el fuero laboral por demora injustificada en dictar sentencia.</td>
+                        <td>Ley XIII-N.º 2 (Código Procesal Laboral de Misiones)</td>
+                        <td>Artículo 162</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en juicios de autorización supletoria para contraer matrimonio y nombramiento de tutores/curadores.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículos 711, 713</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en juicios de divorcio y nulidad de matrimonio en casos específicos.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 716</td>
+                    </tr>
+                    <tr>
+                        <td>Traslado de demanda por declaración de inconstitucionalidad al Fiscal de Estado.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 811</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="entity-header">Defensa Pública / Defensor Oficial</th>
+                    </tr>
+                    <tr>
+                        <th>Función Principal</th>
+                        <th>Ley</th>
+                        <th>Artículo(s) Principal(es)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Representación y defensa de los trabajadores en el Fuero Laboral.</td>
+                        <td>Ley XIII-N.º 2 (Código Procesal Laboral de Misiones)</td>
+                        <td>Artículo 16</td>
+                    </tr>
+                    <tr>
+                        <td>Ejercicio de la acción civil resarcitoria en el proceso penal para incapaces sin representación.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículo 16</td>
+                    </tr>
+                    <tr>
+                        <td>Derecho del imputado a ser defendido por un Defensor Oficial y su designación de oficio.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 107, 110</td>
+                    </tr>
+                    <tr>
+                        <td>Ejercicio de la defensa técnica de niños, niñas y adolescentes en causas judiciales.</td>
+                        <td>Ley II-N.º 16 (Ley de Protección Integral de los Derechos de Niños, Niñas y Adolescentes)</td>
+                        <td>Artículos 69, 95, 101</td>
+                    </tr>
+                    <tr>
+                        <td>Asunción de la representación y defensa del beneficiario de litigar sin gastos.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 85</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en medidas preliminares urgentes cuando la parte contraria no puede ser citada.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 329</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="entity-header">Ministerio Pupilar / Asesor de Menores e Incapaces</th>
+                    </tr>
+                    <tr>
+                        <th>Función Principal</th>
+                        <th>Ley</th>
+                        <th>Artículo(s) Principal(es)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Intervención en la guarda de personas mayores de 18 años en condición de vulnerabilidad o incapaces.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 238</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en el procedimiento de declaración de incapacidad e inhabilitación.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículos 661 inc. 4), 666, 667, 668, 671, 677</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en la solicitud de autorización para menores a comparecer en juicio.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 652</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en audiencias preliminares de juicios de alimentos y litisexpensas.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 698</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención en la partición y adjudicación de herencias si existen incapaces.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 760</td>
+                    </tr>
+                    <tr>
+                        <td>Intervención promiscua en caso de actores menores de dieciocho años en el fuero laboral.</td>
+                        <td>Ley XIII-N.º 2 (Código Procesal Laboral de Misiones)</td>
+                        <td>Artículo 19</td>
+                    </tr>
+                    <tr>
+                        <td>Los Consejeros de Familia ejercen las funciones inherentes al Ministerio Pupilar.</td>
+                        <td>Ley II-N.º 16 (Ley de Protección Integral de los Derechos de Niños, Niñas y Adolescentes)</td>
+                        <td>Artículo 68</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="entity-header">Representación de Ausentes</th>
+                    </tr>
+                    <tr>
+                        <th>Función Principal</th>
+                        <th>Ley</th>
+                        <th>Artículo(s) Principal(es)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nombramiento de Defensor Oficial para demandados con domicilio incierto o desconocido.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 344</td>
+                    </tr>
+                    <tr>
+                        <td>Nombramiento de Defensor de Ausentes en caso de incomparecencia tras citación por edictos.</td>
+                        <td>Ley XIII-N.º 2 (Código Procesal Laboral de Misiones)</td>
+                        <td>Artículo 30</td>
+                    </tr>
+                    <tr>
+                        <td>La caducidad de instancia no se aplica a ausentes que carecen de representación legal en juicio.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 316</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="3" class="entity-header">Representación / Defensa de Incapaces (incluye Menores)</th>
+                    </tr>
+                    <tr>
+                        <th>Función Principal</th>
+                        <th>Ley</th>
+                        <th>Artículo(s) Principal(es)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Suspensión del proceso cuando una parte que actúa personalmente fallece o se torna incapaz, citando a su representante legal.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 43</td>
+                    </tr>
+                    <tr>
+                        <td>Designación de curador o Defensor Oficial para el imputado que padece una enfermedad mental o incapacidad sobreviniente en el proceso penal.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 73, 74</td>
+                    </tr>
+                    <tr>
+                        <td>Examen mental obligatorio para imputados en delitos específicos, sordomudos, menores de 18 o mayores de 70.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículo 75</td>
+                    </tr>
+                    <tr>
+                        <td>Procedimiento especial para menores de 16 años víctimas de delitos contra la integridad sexual, con apoyo profesional y sin presencia del imputado.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículo 252</td>
+                    </tr>
+                    <tr>
+                        <td>Competencia de los juzgados de Familia para la declaración de incapacidad, inhabilitación y cuestiones de curatela.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículos 2 inc. 8), 641 inc. 15)</td>
+                    </tr>
+                    <tr>
+                        <td>Procedimiento para la declaración de incapacidad o inhabilitación, incluyendo informes interdisciplinarios y vistas al Asesor de Incapaces y MPF.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículos 660 al 678</td>
+                    </tr>
+                    <tr>
+                        <td>Derecho del niño, niña o adolescente a ser oído personalmente por el juez y a contar con defensa técnica en todo proceso que los afecte.</td>
+                        <td>Ley II-N.º 16 (Ley de Protección Integral de los Derechos de Niños, Niñas y Adolescentes)</td>
+                        <td>Artículos 31, 87, 95, 101, 109, 120</td>
+                    </tr>
+                    <tr>
+                        <td>Protección de la intimidad de niños, niñas y adolescentes en actuaciones judiciales.</td>
+                        <td>Ley II-N.º 16 (Ley de Protección Integral de los Derechos de Niños, Niñas y Adolescentes)</td>
+                        <td>Artículo 72</td>
+                    </tr>
+                    <tr>
+                        <td>Derecho a recurrir sentencias para el condenado incapaz, a través de sus representantes legales.</td>
+                        <td>Ley XIV-N.º 13 (Código Procesal Penal de Misiones)</td>
+                        <td>Artículos 460, 494</td>
+                    </tr>
+                    <tr>
+                        <td>Solicitud y sustanciación de licencia judicial para el matrimonio de menores o incapaces.</td>
+                        <td>Ley XII-N.º 27 (Código Procesal Civil, Comercial, de Familia y Violencia Familiar de Misiones)</td>
+                        <td>Artículo 711</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="module" id="modulo2">
+            <h2>Tabla de Escritos y Actos Procesales - Juicios Sumarios y Sumarísimos</h2>
+            <p>A diferencia del juicio ordinario, los procesos <strong>sumarios</strong> y <strong>sumarísimos</strong> están diseñados para ser más rápidos, con plazos más cortos y etapas procesales simplificadas. La legislación argentina (principalmente el Código Procesal Civil y Comercial de la Nación) establece qué tipo de casos deben tramitarse por esta vía. A continuación, se presenta una tabla que desglosa los componentes principales de estos juicios, con especial énfasis en su diferencia con el proceso ordinario.</p>
+            <h3>Juicio Sumario</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa Procesal</th>
+                        <th>Escritos y Actos Comunes</th>
+                        <th>Plazos y Características Clave</th>
+                        <th>Ejemplos de Casos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Etapa Inicial</strong></td>
+                        <td>
+                            <ul>
+                                <li>Demanda y ofrecimiento de prueba.</li>
+                                <li>Contestación de demanda y ofrecimiento de prueba.</li>
+                                <li>Mediación (previa obligatoria).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>El plazo para contestar la demanda es de <strong>10 días</strong> (en lugar de 15 del juicio ordinario).</li>
+                                <li>Toda la prueba debe ofrecerse en los escritos de demanda y contestación.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Accidentes de tránsito.</li>
+                                <li>Daños y perjuicios derivados de incumplimiento de contratos.</li>
+                                <li>Acciones de cobro de honorarios.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Etapa Probatoria</strong></td>
+                        <td>
+                            <ul>
+                                <li>Producción de prueba.</li>
+                                <li>Audiencia preliminar (opcional en algunos casos).</li>
+                                <li>Oficios y cédulas.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>La prueba se concentra en una sola etapa.</li>
+                                <li>Los plazos para producir la prueba son más cortos.</li>
+                                <li>No existe la posibilidad de presentar excepciones previas (se resuelven con la sentencia definitiva).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>Las pruebas se producen de forma similar al juicio ordinario (pericial, testimonial, etc.), pero con plazos más acotados para su producción.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sentencia y Recursos</strong></td>
+                        <td>
+                            <ul>
+                                <li>Sentencia definitiva.</li>
+                                <li>Recursos de apelación.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>El plazo para la sentencia suele ser más breve.</li>
+                                <li>El recurso de apelación se concede con efecto suspensivo.</li>
+                                <li>Generalmente, las sentencias no son apelables en lo referente a la prueba.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>La sentencia pone fin al proceso, y si una de las partes no está de acuerdo, puede presentar un recurso de apelación.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Juicio Sumarísimo</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa Procesal</th>
+                        <th>Escritos y Actos Comunes</th>
+                        <th>Plazos y Características Clave</th>
+                        <th>Ejemplos de Casos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Etapa Inicial y Única Audiencia</strong></td>
+                        <td>
+                            <ul>
+                                <li>Demanda con ofrecimiento de prueba.</li>
+                                <li>Contestación de demanda.</li>
+                                <li>Mediación (si corresponde).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>El plazo para contestar la demanda es de <strong>5 días</strong>.</li>
+                                <li>Una vez contestada, se fija una única <strong>audiencia de vista de causa</strong>.</li>
+                                <li>No se admiten excepciones previas ni reconvención.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Desalojo por falta de pago o vencimiento de contrato.</li>
+                                <li>Juicios de alimentos.</li>
+                                <li>Acciones de amparo y hábeas corpus.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audiencia de Vista de Causa</strong></td>
+                        <td>
+                            <ul>
+                                <li>Alegaciones iniciales.</li>
+                                <li>Prueba testimonial y pericial (se rinde en la misma audiencia).</li>
+                                <li>Alegatos finales (verbales).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Es una audiencia única y concentrada.</li>
+                                <li>El juez dirige la producción de toda la prueba en ese mismo acto.</li>
+                                <li>Es el momento para que las partes ofrezcan sus argumentos finales (alegatos) de forma oral.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>La audiencia es la etapa central del juicio, donde se concentra toda la actividad procesal.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sentencia y Recursos</strong></td>
+                        <td>
+                            <ul>
+                                <li>Sentencia.</li>
+                                <li>Recursos de apelación.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>El juez debe dictar sentencia <strong>en el mismo acto de la audiencia</strong> o en un plazo muy breve (generalmente 5 días).</li>
+                                <li>El recurso de apelación se concede con efecto devolutivo (no suspende la ejecución de la sentencia).</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <p>La sentencia se dicta de forma muy rápida, y el recurso de apelación no detiene la ejecución de la misma (salvo casos excepcionales).</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Diferencia Clave:</strong> La principal distinción entre los procesos ordinarios, sumarios y sumarísimos radica en la <strong>reducción de los plazos</strong> y la <strong>concentración de las etapas procesales</strong>. Mientras que el juicio ordinario tiene una estructura más dilatada y formal, los procesos sumarios y sumarísimos buscan una solución más rápida y eficiente, sacrificando algunas garantías procesales en pos de la celeridad.</p>
+        </div>
+
+        <div class="module" id="modulo3">
+            <h2>Tabla de Escritos y Actos Procesales en los Juicios Ordinarios</h2>
+            <p>Esta tabla proporciona una guía detallada y organizada sobre los escritos y actos procesales. Se enfoca en los trámites ordinarios para los fueros civil y comercial, penal, familia y violencia familiar.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Juicio</th>
+                        <th>Etapa Inicial</th>
+                        <th>Escritos y Actos Procesales Comunes</th>
+                        <th>Etapa Probatoria</th>
+                        <th>Etapa de Sentencia y Recursos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Civil y Comercial</strong></td>
+                        <td>
+                            <ul>
+                                <li>Demanda</li>
+                                <li>Mediación (previa obligatoria)</li>
+                                <li>Acompañamiento de prueba documental</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Contestación de demanda</li>
+                                <li>Excepciones (de incompetencia, de falta de legitimación, etc.)</li>
+                                <li>Reconvención (contra demanda)</li>
+                                <li>Presentación de escritos varios (solicitud de plazos, desglose de expedientes)</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Ofrecimiento y producción de prueba (testimonial, pericial, documental, confesional)</li>
+                                <li>Audiencia preliminar (art. 360 CPCC)</li>
+                                <li>Cédulas de notificación</li>
+                                <li>Oficios y exhortos (para notificar fuera de la jurisdicción)</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Alegatos</li>
+                                <li>Sentencia de primera instancia</li>
+                                <li>Recursos (Apelación, Casación)</li>
+                                <li>Ejecución de sentencia</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Penal</strong></td>
+                        <td>
+                            <ul>
+                                <li>Denuncia o querella</li>
+                                <li>Prevención sumaria</li>
+                                <li>Detención (si corresponde)</li>
+                                <li>Solicitud de medidas cautelares</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Indagatoria</li>
+                                <li>Declaración testimonial</li>
+                                <li>Solicitud de excarcelación</li>
+                                <li>Requerimiento de elevación a juicio</li>
+                                <li>Oposición a la elevación a juicio</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Solicitud de medidas de prueba (pericias, declaraciones testimoniales)</li>
+                                <li>Presentación de informes periciales</li>
+                                <li>Oficios judiciales</li>
+                                <li>Inspección ocular</li>
+                                <li>Cédulas de notificación</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Alegatos (en el juicio oral)</li>
+                                <li>Sentencia (absolutoria o condenatoria)</li>
+                                <li>Recursos (Apelación, Casación)</li>
+                                <li>Ejecución de la pena</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Familia</strong></td>
+                        <td>
+                            <ul>
+                                <li>Demanda (de divorcio, de alimentos, de filiación)</li>
+                                <li>Mediación previa</li>
+                                <li>Acompañamiento de prueba documental</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Contestación de demanda</li>
+                                <li>Solicitud de medidas cautelares (ej. cuota alimentaria provisoria)</li>
+                                <li>Presentación de escritos varios (solicitud de regímenes de comunicación)</li>
+                                <li>Oficios (por ej. para solicitar informes laborales)</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Audiencias (con la otra parte, con los hijos, con el equipo interdisciplinario)</li>
+                                <li>Informes socioambientales</li>
+                                <li>Pericias psicológicas o psiquiátricas</li>
+                                <li>Informes médicos</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Sentencia</li>
+                                <li>Recursos de Apelación</li>
+                                <li>Convenios de mediación (si se llega a acuerdo)</li>
+                                <li>Ejecución de la sentencia</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Violencia Familiar</strong></td>
+                        <td>
+                            <ul>
+                                <li>Denuncia (en sede judicial, policial o fiscal)</li>
+                                <li>Audiencia urgente y toma de medidas por el Juez</li>
+                                <li>Intervención del equipo técnico interdisciplinario</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Solicitud de medidas cautelares de protección (ej. exclusión del hogar, prohibición de acercamiento)</li>
+                                <li>Pedido de medidas cautelares adicionales</li>
+                                <li>Presentación de informes médicos o psicológicos</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Audiencia con la persona denunciante y con la denunciada</li>
+                                <li>Informes del equipo interdisciplinario</li>
+                                <li>Testimonios</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Sentencia (si se constituye en delito)</li>
+                                <li>Recursos (si corresponde)</li>
+                                <li>Cese o modificación de las medidas de protección</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        function filterContent() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
+            const allRows = document.querySelectorAll('tbody tr, h3');
+            
+            allRows.forEach(row => {
+                const rowContent = row.textContent.toLowerCase();
+                if (searchText === "") {
+                    row.classList.remove('hidden-row');
+                } else if (rowContent.includes(searchText)) {
+                    row.classList.remove('hidden-row');
+                } else {
+                    row.classList.add('hidden-row');
+                }
+            });
+            
+            // Ocultar los módulos completos si no hay contenido coincidente
+            const modules = document.querySelectorAll('.module');
+            modules.forEach(module => {
+                const hasVisibleContent = module.querySelector('tbody tr:not(.hidden-row)');
+                if (!hasVisibleContent && searchText !== "") {
+                    module.style.display = 'none';
+                } else {
+                    module.style.display = 'block';
+                }
+            });
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                filterContent();
+            }
+        }
+    </script>
+</body>
+</html>
